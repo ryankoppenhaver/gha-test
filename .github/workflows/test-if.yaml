@@ -49,8 +49,12 @@ jobs:
         if: ${{ 'false' }}
         run: echo ok
 
+      - name: quoted_expr_string_false
+        if: "${{ 'false' }}"
+        run: echo ok
+
       - name: expr_string_false_fn
-        if: ${{ format('{0}{1}', 'fal', 'se') }} 
+        if: ${{ format('{0}{1}', 'fal', 'se') }}
         run: echo ok
 
       # Unexpected symbol: '"false"'.
