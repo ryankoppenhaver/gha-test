@@ -1,4 +1,4 @@
-name: "Test `if:` scenarios
+name: "Test `if:` scenarios"
 on: push
 jobs:
   test_scenarios:
@@ -8,7 +8,7 @@ jobs:
         run: echo ok
 
       - name: no_braces
-        if false
+        if: false
         run: echo ok
 
       - name: quoted
