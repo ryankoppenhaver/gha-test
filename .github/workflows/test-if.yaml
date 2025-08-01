@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: standard_true
-        if: ${{ }}
+        if: ${{ true }}
         run: echo ok
 
       - name: standard_false
