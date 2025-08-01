@@ -57,12 +57,21 @@ jobs:
         if: "${{ format('{0}{1}', 'fal', 'se') }}"
         run: echo ok
 
-      - name: arr_bool
-        if: "${{ [false][0] }}"
+      # Unexpected symbol: '['.
+      #- name: arr_bool
+      #  if: "${{ [false][0] }}"
+      #  run: echo ok
+
+      #- name: arr_str
+      #  if: "${{ ['false'][0] }}"
+      #  run: echo ok
+
+      - name: json_arr_bool
+        if: "${{ fromJSON('[false]')[0] }}"
         run: echo ok
 
-      - name: arr_str
-        if: "${{ ['false'][0] }}"
+      - name: json_arr_str
+        if: ${{ fromJSON('["false"]')[0] }}
         run: echo ok
 
       - name: zero
