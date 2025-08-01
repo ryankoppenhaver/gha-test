@@ -54,12 +54,23 @@ jobs:
       #  if: ${{ 'maybe' }}
       #  run: echo ok
 
-      - name: make_maybe
-        id: maybe
-        run: "echo 'maybe=maybe' >> $GITHUB_OUTPUT"
+      - name: make_outputs
+        id: make
+        run: |
+          echo 'true=true' >> $GITHUB_OUTPUT
+          echo 'false=false' >> $GITHUB_OUTPUT
+          echo 'maybe=maybe' >> $GITHUB_OUTPUT
+
+      - name: runtime_true
+        if: ${{ steps.make.outputs.true }}
+        run: echo ok
+
+      - name: runtime_false
+        if: ${{ steps.make.outputs.false }}
+        run: echo ok
 
       - name: runtime_maybe
-        if: ${{ steps.maybe.outputs.maybe }}
+        if: ${{ steps.make.outputs.maybe }}
         run: echo ok
 
       # yes
