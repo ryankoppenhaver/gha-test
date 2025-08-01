@@ -4,7 +4,11 @@ jobs:
   test_scenarios:
     runs-on: ubuntu-latest
     steps:
-      - name: standard
+      - name: standard_true
+        if: ${{ }}
+        run: echo ok
+
+      - name: standard_false
         if: ${{ false }}
         run: echo ok
 
@@ -24,6 +28,10 @@ jobs:
         if: "false"
         run: echo ok
 
+      - name: string_maybe
+        if: "maybe"
+        run: echo ok
+
       - name: expr_string_true
         if: ${{ 'true' }}
         run: echo ok
@@ -32,7 +40,36 @@ jobs:
         if: ${{ 'false' }}
         run: echo ok
 
+      - name: multiline_quoted_true
+        if: |
+          ${{ true }}
+        run: echo ok
+
       - name: multiline_quoted_false
         if: |
           ${{ false }}
+        run: echo ok
+
+      - name: extra_quote_true
+        if: ${{ '"true"' }}
+        run: echo ok
+
+      - name: extra_quote_false
+        if: ${{ '"false"' }}
+        run: echo ok
+
+      - name: anchor_true
+        if: &t true
+        run: echo ok
+
+      - name: anchor_false
+        if: &f false
+        run: echo ok
+
+      - name: alias_true
+        if: *t
+        run: echo ok
+
+      - name: alias_false
+        if: *f
         run: echo ok
