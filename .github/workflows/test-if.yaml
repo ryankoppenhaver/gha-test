@@ -49,10 +49,6 @@ jobs:
         if: ${{ 'false' }}
         run: echo ok
 
-      - name: expr_string_false_caps
-        if: ${{ 'FALSE' }}
-        run: echo ok
-
       - name: quoted_expr_string_false
         if: "${{ 'false' }}"
         run: echo ok
@@ -76,6 +72,10 @@ jobs:
 
       - name: json_arr_str
         if: ${{ fromJSON('["false"]')[0] }}
+        run: echo ok
+
+      - name: json_arr_str_maybe
+        if: ${{ fromJSON('["maybe"]')[0] }}
         run: echo ok
 
       - name: zero
