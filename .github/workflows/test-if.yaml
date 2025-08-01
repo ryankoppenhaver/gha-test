@@ -86,6 +86,14 @@ jobs:
         if: "${{ '' }}"
         run: echo ok
 
+      - name: empty_string_to_bool
+        if: "${{ !! '' }}"
+        run: echo ok
+
+      - name: empty_string_conditional
+        if: "${{ '' && true || false }}"
+        run: echo ok
+
       - name: empty_string_fn
         if: "${{ format('') }}"
         run: echo ok
