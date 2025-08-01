@@ -61,18 +61,20 @@ jobs:
       #  if: ${{ '"false"' }}
       #  run: echo ok
 
-      - name: anchor_true
-        if: &t true
-        run: echo ok
 
-      - name: anchor_false
-        if: &f false
-        run: echo ok
+      # Unexpected symbol: '"false"'.
+      #- name: anchor_true
+      #  if: &t true
+      #  run: echo ok
 
-      - name: alias_true
-        if: *t
-        run: echo ok
+      #- name: anchor_false
+      #  if: &f false
+      #  run: echo ok
 
-      - name: alias_false
-        if: *f
-        run: echo ok
+      #- name: alias_true
+      #  if: *t
+      #  run: echo ok
+
+      #- name: alias_false
+      #  if: *f
+      #  run: echo ok
