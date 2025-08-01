@@ -49,6 +49,10 @@ jobs:
         if: ${{ 'false' }}
         run: echo ok
 
+      - name: expr_string_false_fn
+        if: ${{ format('{0}{1}', 'fal', 'se') }} 
+        run: echo ok
+
       # Unexpected symbol: '"false"'.
       #- name: expr_string_maybe
       #  if: ${{ 'maybe' }}
@@ -61,14 +65,17 @@ jobs:
           echo 'false=false' >> $GITHUB_OUTPUT
           echo 'maybe=maybe' >> $GITHUB_OUTPUT
 
+      # yes
       - name: runtime_true
         if: ${{ steps.make.outputs.true }}
         run: echo ok
 
+      # yes !
       - name: runtime_false
         if: ${{ steps.make.outputs.false }}
         run: echo ok
 
+      # yes !
       - name: runtime_maybe
         if: ${{ steps.make.outputs.maybe }}
         run: echo ok
