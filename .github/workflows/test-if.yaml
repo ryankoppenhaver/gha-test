@@ -28,9 +28,10 @@ jobs:
         if: "false"
         run: echo ok
 
-      - name: string_maybe
-        if: "maybe"
-        run: echo ok
+      # Unrecognized named-value: 'maybe'.
+      #- name: string_maybe
+      #  if: "maybe"
+      #  run: echo ok
 
       - name: expr_string_true
         if: ${{ 'true' }}
@@ -50,13 +51,15 @@ jobs:
           ${{ false }}
         run: echo ok
 
-      - name: extra_quote_true
-        if: ${{ '"true"' }}
-        run: echo ok
+      # Unexpected symbol: '"true"'.
+      #- name: extra_quote_true
+      #  if: ${{ '"true"' }}
+      #  run: echo ok
 
-      - name: extra_quote_false
-        if: ${{ '"false"' }}
-        run: echo ok
+      # Unexpected symbol: '"false"'.
+      #- name: extra_quote_false
+      #  if: ${{ '"false"' }}
+      #  run: echo ok
 
       - name: anchor_true
         if: &t true
