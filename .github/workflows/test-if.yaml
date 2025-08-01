@@ -2,6 +2,7 @@ name: "Test `if:` scenarios"
 on: push
 jobs:
   test_scenarios:
+    runs-on: ubuntu-latest
     steps:
       - name: standard
         if: ${{ false }}
@@ -24,11 +25,11 @@ jobs:
         run: echo ok
 
       - name: expr_string_true
-        if: ${{ "true" }}
+        if: ${{ 'true' }}
         run: echo ok
 
       - name: expr_string_false
-        if: ${{ "false" }}
+        if: ${{ 'false' }}
         run: echo ok
 
       - name: multiline_quoted_false
