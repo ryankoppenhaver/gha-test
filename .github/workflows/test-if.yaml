@@ -82,6 +82,14 @@ jobs:
         if: "${{ 0 }}"
         run: echo ok
 
+      - name: empty_string
+        if: "${{ '' }}"
+        run: echo ok
+
+      - name: empty_string_fn
+        if: "${{ format('') }}"
+        run: echo ok
+
       # Unexpected symbol: '"false"'.
       #- name: expr_string_maybe
       #  if: ${{ 'maybe' }}
