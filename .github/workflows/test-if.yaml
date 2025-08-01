@@ -57,6 +57,14 @@ jobs:
         if: "${{ format('{0}{1}', 'fal', 'se') }}"
         run: echo ok
 
+      - name: arr_bool
+        if: "${{ [false][0] }}"
+        run: echo ok
+
+      - name: arr_str
+        if: "${{ ['false'][0] }}"
+        run: echo ok
+
       - name: zero
         if: "${{ 0 }}"
         run: echo ok
