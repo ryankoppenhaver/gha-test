@@ -1,1 +1,5 @@
-${{ fromJson('{"on":{"push":null},"jobs":{"runs-on":"ubuntu-slim","steps":[{"run":"echo \"hello world\""}]}}') }}
+on:
+  push:
+
+jobs:
+  ${{ fromJson('{"runs-on":"ubuntu-slim","steps":[{"run":"echo \"hello world\""}]}') }}
